@@ -14,10 +14,12 @@ class ControllerMateria{
     }
     
     public function put(){
-        
+        $model = new modelMateria();
+        $model->update();
     }
 
     public function delete(){
-        
+        $model = new modelMateria();
+        $model->delete();
     }
 }

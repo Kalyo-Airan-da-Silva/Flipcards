@@ -51,4 +51,34 @@ class ModelMateria{
             echo true;
         }
     }
+    public function update(){
+        $this->setMatcodigo();
+        $this->setMatdescricao();
+
+        $query = Application::getInstance()->getDbConn()->newQuery();
+        $query->setSQL("UPDATE TBMATERIA SET MATDESCRICAO = $2 WHERE MATCODIGO = $1");
+        $query->setValues([$this->matcodigo, $this->matdescricao]);
+
+        if(!$query->DML()){
+            echo false;
+        }
+        else{
+            echo true;
+        }
+    }        
+
+    public function delete(){
+        $this->setMatcodigo();
+
+        $query = Application::getInstance()->getDbConn()->newQuery();
+        $query->setSQL("DELETE FROM TBMATERIA WHERE MATCODIGO = $1");
+        $query->setValues([$this->matcodigo]);
+
+        if(!$query->DML()){
+            echo false;
+        }
+        else{
+            echo true;
+        }
+    }
 }
