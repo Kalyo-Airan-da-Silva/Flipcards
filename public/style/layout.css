@@ -53,7 +53,14 @@ nav{
 .IconGroup svg{
     margin: 0.25rem;
     cursor: pointer;
+    transition: all 0.5s;
 }
+
+
+.IconGroup svg:hover{
+    transform: rotate(360deg);
+}
+
 
 main{
     width: 80%;
