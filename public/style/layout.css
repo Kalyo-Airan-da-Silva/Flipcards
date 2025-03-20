@@ -129,6 +129,15 @@ main{
     padding-bottom: 0;
     margin: 0;
 }
+#Materia{
+    font-family: system-ui;
+    font-weight: 400;
+    padding-bottom: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    border: none;
+    margin-left: -5px;
+}
 
 #info h6{
     margin: 0;
@@ -144,6 +153,7 @@ main{
     align-items: center;
     margin-left: 2rem;
     margin-top: 2rem;
+    align-items: flex-start;
 }
 
 .infoItem svg{
@@ -153,46 +163,24 @@ main{
     padding-right: 1rem;
 }
 
-.infoAction{
-    display: flex;
-    align-items: center;
-    margin-left: 2rem;
-    margin-bottom: 2rem;
-    margin-right: 2rem;
-    justify-content: center;
 
-}
-
-.button{
-    display: flex;
-    border: 2px solid var(--FgColor);
-    border-radius: 15px;
-    align-items: center;
+.addMat{
+    width: 25px !important;
+    height: 25px !important;
+    padding: 0;
+    padding-top: 0.5rem;
+    fill: #bbbbbb !important;
     cursor: pointer;
-    margin-right: 1rem;
     transition: all 0.2s;
+    display: none;
 }
 
-.button svg{
-    fill: var(--FgColor);
-    padding: 0 1rem;
-    padding-right: 0.2rem;
-    width: 25px;
-    height: 25px;
+.addMat:hover{
+    fill: #555555 !important;
 }
 
-.button:hover{
-    background: #f3f3f3;
-}
-
-.button h3{    
-    font-family: system-ui;
-    font-weight: 400;
-    color: var(--FgColor);
-    margin: 0;
-    padding: 0.5rem 1rem;
-    padding-left: 0;
-    font-size: 1rem;
+.infoItem:hover .addMat{
+    display: block;
 }
 
 #infoContent{

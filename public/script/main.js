@@ -16,3 +16,9 @@ function flip(){
 
     flipped = !flipped;
 }
+
+function dropQuestion(button){
+    let question = button.parentElement;
+
+    question.remove();
+}
