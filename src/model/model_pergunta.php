@@ -24,18 +24,49 @@ class modelPergunta{
     }
 
     public function getAll(){
+        $this->setMatcodigo();
+
+        if ($this->matcodigo == null){
+            $this->matcodigo = -1;
+        }
+
         $result = [];
         $query = Application::getInstance()->getDbConn()->newQuery();
-        $query->setSql("SELECT * FROM TBPERGUNTA");
+        $query->setSql("SELECT * FROM TBPERGUNTA WHERE MATCODIGO = $1");
+        $query->setValues([$this->matcodigo]);
         $query->open();
 
         while($row = $query->Next()) {
             array_push($result, $row);
         }
 
-        echo json_encode($result);
+        return $result;
     }
     
+    public function getRandom(){
+        $this->setMatcodigo();
+
+        if ($this->matcodigo == null){
+            $this->matcodigo = -1;
+        }
+
+        $result = [];
+        $query = Application::getInstance()->getDbConn()->newQuery();
+        $query->setSql("SELECT *
+                          FROM TBPERGUNTA
+                         WHERE MATCODIGO = $1
+                         ORDER BY RANDOM()
+                         LIMIT 1");
+        $query->setValues([$this->matcodigo]);
+        $query->open();
+
+        while($row = $query->Next()) {
+            array_push($result, $row);
+        }
+
+        return $result;
+    }
+
     private function getNextPerCodigo(){
         $query = Application::getInstance()->getDbConn()->newQuery();
         $query->setSql("SELECT COALESCE(MAX(PERCODIGO),0)+1 AS COD FROM TBPERGUNTA");

@@ -15,14 +15,14 @@ class ModelMateria{
     public function getAll(){
         $result = [];
         $query = Application::getInstance()->getDbConn()->newQuery();
-        $query->setSql("SELECT * FROM TBMATERIA");
+        $query->setSql("SELECT * FROM TBMATERIA WHERE MATATIVO = 1");
         $query->open();
 
         while($row = $query->Next()) {
             array_push($result, $row);
         }
 
-        echo json_encode($result);
+        return $result;
     }
     
     private function getNextMatCodigo(){
